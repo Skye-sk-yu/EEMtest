@@ -48,7 +48,7 @@ import gtts #文字转语音
 #     environment=PINECONE_API_ENV
 # )
 # # 要填入对应的index name
-# index_name = "dental" # put in the name of your pinecone index here
+# index_name = "eemtest" # put in the name of your pinecone index here
 # for i in range(len(texts)):
 #     Pinecone.from_texts([t.page_content for t in texts[i]], embeddings, index_name=index_name)
 #     print("done")
@@ -79,7 +79,7 @@ if query:
     embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
     print('2:'+ str(embeddings))
     # 调用pinecone的数据库，开始查询任务
-    docsearch = Pinecone.from_existing_index('dental',embedding=embeddings)
+    docsearch = Pinecone.from_existing_index('eemtest',embedding=embeddings)
     print('3:'+ str(docsearch))
     # 相似度搜索，例如疼678，痛679，搜索用户的问题的相似度
     docs = docsearch.similarity_search(query, k=3)
